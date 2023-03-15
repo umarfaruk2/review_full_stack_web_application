@@ -6,7 +6,7 @@ export const create_service_controller = async (req, res, next) => {
 
 		res.status(200).json({
 			status: 'success',
-			data: create_service_res
+			data: "create new service successfully"
 		})
 	} catch(error) {
 		next(error);

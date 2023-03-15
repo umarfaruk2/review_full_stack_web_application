@@ -14,7 +14,7 @@ export const create_review_controller = async (req, res, next) => {
 
 		res.status(200).json({
 			status: 'success',
-			data: create_review
+			data: 'create review successfully'
 		})	
 	} catch(error) {
 		next(error);

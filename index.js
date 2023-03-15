@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import dbConnection from './config/dbConnection.js';
 import serviceRoute from './routes/service.route.js'; 
 import reviewRoute from './routes/review.route.js';
+import userRoute from './routes/user.route.js';
 dotenv.config();
 
 const app = express();
@@ -24,6 +25,7 @@ dbConnection();
 // routers
 app.use('/api/v1/service', serviceRoute);
 app.use('/api/v1/review', reviewRoute);
+app.use('/api/v1/user', userRoute);
 
 // 404 error handle
 app.use((req, res, next) => {
