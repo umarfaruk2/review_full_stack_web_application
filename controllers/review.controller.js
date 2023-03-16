@@ -52,7 +52,6 @@ export const update_review_controller = async (req, res, next) => {
 export const get_my_review_controller = async (req, res, next) => {
 	try {
 		const { email } = req.query;
-		console.log(email)
 		const my_review = await get_my_review_service(email);
 
 		res.status(200).json({
