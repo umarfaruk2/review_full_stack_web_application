@@ -5,7 +5,7 @@ import verifyToken from '../middlewares/verifyToken.js';
 const reviewRoute = express.Router();
 
 
-reviewRoute.get('/my-review', verifyToken, get_my_review_controller);
+reviewRoute.get('/my-review', get_my_review_controller);
 
 reviewRoute.route('/')
 	.post(verifyToken, create_review_controller)
