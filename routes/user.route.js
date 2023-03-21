@@ -7,7 +7,6 @@ const userRoute = express.Router();
 userRoute.post('/sign-up', sign_up_controller);
 userRoute.post('/login', login_controller);
 
-
 userRoute.get('/me', verifyToken, verify_user_controller);
 
 

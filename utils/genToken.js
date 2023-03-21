@@ -6,7 +6,7 @@ const genToken = (user) => {
 	}
 
 	const token = jwt.sign(payload, process.env.SECRET_KEY, {
-		expiresIn: '1m'
+		expiresIn: '1h'
 	})
 
 	return token;

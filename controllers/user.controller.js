@@ -43,10 +43,6 @@ export const login_controller = async (req, res, next) => {
 				} else {
 					const token = genToken(user);
 
-					res.cookie('accessToken', token, {
-						httpOnly: true, 
-						maxAge: 24*60*60*1000
-					})
 					const {password: pwt, ...others } = user.toObject();
 					res.status(200).json({
 						status: 'success',
@@ -66,25 +62,13 @@ export const login_controller = async (req, res, next) => {
 
 export const verify_user_controller = async (req, res, next) => {
 	try {
-		const user = await find_user_service(req.user?.eamil);
+		const user = await find_user_service(req.user?.email);
+		const { password: pwd, ...others } = user.toObject();
 		res.status(200).json({
 			status: 'success',
-			data: user
+			data: others
 		})
 	} catch(error) {
 		next(error);
 	}
-}
-
-
-export const logout_controller = async (req, res, next) => {
-	try {
-		res.clearCookie('accessToken');
-		res.status(200).json({
-			status: 'success',
-			message: 'user logout successfully'
-		})
-	} catch(error) {
-		next(error);
-	}	
 }

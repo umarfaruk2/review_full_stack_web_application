@@ -6,7 +6,7 @@ export const create_review_controller = async (req, res, next) => {
 		const create_review = await create_review_service(req.body);
 		const {_id, service } = create_review;
 
-		await service_model.updateOne({_id: service}, {
+		await service_model.updateOne({_id: service.id}, {
 			$push: { reviews: _id }
 		}, {
 			runvalidator: true

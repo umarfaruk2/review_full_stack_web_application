@@ -21,9 +21,14 @@ const review_schema = new mongoose.Schema({
 		requied: [true, 'please enter your review ratring']
 	},
 	service: {
-		type: ObjectId,
-		ref: 'Service',
-		requied: true
+		name: {
+			type: String
+		},
+		id: {
+			type: ObjectId,
+			ref: 'Service',
+			requied: true
+		}
 	}
 }, {
 	timestamps: true
